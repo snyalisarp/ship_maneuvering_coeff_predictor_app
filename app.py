@@ -231,3 +231,7 @@ if up_file:
             * **$N_{\delta}$**: Dümenin döndürme kapasitesi.
             * **$N_P$**: Pervane kaynaklı yan çekme.
             """)
+
+# Footer
+st.markdown("---")
+st.caption("Geliştirilen bu arayüz prototip amaçlıdır.")

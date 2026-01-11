@@ -158,7 +158,7 @@ if up_file:
                 scaler = StandardScaler(with_mean=False)
                 X_s = scaler.fit_transform(df_p[feat])
                 y = df_p[f'{ax}_meas']
-                reg = LinearSVR(fit_intercept=False, C=svr_c, dual=True, max_iter=20000).fit(X_s, y)
+                reg = LinearSVR(fit_intercept=False, C=svr_c, dual=True, max_iter=20000, random_state=42).fit(X_s, y)
                 real_c = reg.coef_ / scaler.scale_
                 for f, val in zip(feat, real_c): svr_coeffs[f"{ax}_{f}"] = val
                 preds = reg.predict(X_s)

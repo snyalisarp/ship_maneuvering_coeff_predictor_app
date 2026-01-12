@@ -202,6 +202,22 @@ if up_file:
             st.info("PINN analizini başlatmak için 'Tahminler' sekmesindeki butona tıklayın.")
     
     with t3:
+        st.info("Çalışmaya konu olan MMG modeli aşağıda tanımlanmıştır.")
+        st.latex(r'''
+        \begin{cases}
+        m(\dot{u} - vr) = X_H + X_P + X_R \\
+        m(\dot{v} + ur) = Y_H + Y_P + Y_R \\
+        I_z \dot{r} = N_H + N_P + N_R
+        \end{cases}
+        ''')
+        st.info("Modelin genişletilmiş hali aşağıdaki gibidir.")
+        st.latex(r'''
+        \begin{cases}
+        m(\dot{u} - vr) = X_u u + X_{uu} |u|u + X_{\delta\delta} \delta^2 + X_P \\
+        m(\dot{v} + ur) = Y_v v + Y_r r + Y_{\delta} \delta \\
+        I_z \dot{r} = N_v v + N_r r + N_{rr} |r|r + N_{\delta} \delta + N_P
+        \end{cases}
+        ''')
         st.info("Bu katsayılar, geminin hidrodinamik davranışını belirleyen fiziksel parametrelerdir.")
     
         col1, col2, col3 = st.columns(3)
